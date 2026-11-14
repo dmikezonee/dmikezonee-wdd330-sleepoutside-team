@@ -1,9 +1,9 @@
-
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: 'src/',
+  base: '/wdd330-sleepoutside-team/',
 
   build: {
     outDir: '../dist',
