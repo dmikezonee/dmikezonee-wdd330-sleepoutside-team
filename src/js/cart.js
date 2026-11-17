@@ -1,10 +1,21 @@
-
 import { getLocalStorage } from './utils.mjs';
 
 function renderCartContents() {
   const cartItems = getLocalStorage('so-cart') || [];
+
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+
   document.querySelector('.product-list').innerHTML = htmlItems.join('');
+
+  // Calculate the cart subtotal.
+  const subtotal = cartItems.reduce(
+  (total, item) => total + Number(item.FinalPrice || 0),
+  0,
+);
+
+  // Display the subtotal.
+  document.querySelector('#cart-subtotal').textContent =
+    `$${subtotal.toFixed(2)}`;
 }
 
 function cartItemTemplate(item) {

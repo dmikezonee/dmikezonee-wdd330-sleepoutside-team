@@ -1,8 +1,8 @@
 
-import ProductData from './ProductData.mjs';
+import ExternalServices from './ExternalServices.mjs';
 import { qs, setLocalStorage } from './utils.mjs';
 
-const dataSource = new ProductData('tents');
+const dataSource = new ExternalServices('tents');
 
 function renderProductDetails(product) {
   document.title = `Sleep Outside | ${product.Name}`;
